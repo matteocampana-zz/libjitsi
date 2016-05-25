@@ -1066,7 +1066,9 @@ public class MediaStreamImpl
             engineChain.add(debugTransformEngine);
 
         // SRTP
-        engineChain.add(srtpControl.getTransformEngine());
+        TransformEngine srtpTransformEngine = srtpControl.getTransformEngine();
+        if (srtpTransformEngine != null)
+            engineChain.add(srtpControl.getTransformEngine());
 
         // SSRC audio levels
         /*
