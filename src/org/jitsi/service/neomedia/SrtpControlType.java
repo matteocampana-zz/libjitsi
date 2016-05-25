@@ -44,7 +44,13 @@ public enum SrtpControlType
     /**
      * ZRTP: Media Path Key Agreement for Unicast Secure RTP (RFC 6189)
      */
-    ZRTP("ZRTP");
+    ZRTP("ZRTP"),
+
+    /**
+     * TRANSPARENT: transparent forwarding, libjitsi cannot decrypt
+     */
+    TRANSPARENT("TRANSPARENT");
+
 
     /**
      * The human-readable non-localized name of the (S)RTP transport protocol

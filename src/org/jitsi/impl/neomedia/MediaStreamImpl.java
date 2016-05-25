@@ -1035,10 +1035,13 @@ public class MediaStreamImpl
         // possible.
         engineChain.add(rtcpTransformEngineWrapper);
 
-        // RTCP Statistics
-        if (statisticsEngine == null)
-            statisticsEngine = new StatisticsEngine(this);
-        engineChain.add(statisticsEngine);
+        if (srtpControl.getSrtpControlType() != SrtpControlType.TRANSPARENT)
+        {
+            // RTCP Statistics
+            if (statisticsEngine == null)
+                statisticsEngine = new StatisticsEngine(this);
+            engineChain.add(statisticsEngine);
+        }
 
         if (retransmissionRequester != null)
         {
